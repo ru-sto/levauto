@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<!--
+╔═══════════════════════════════════════════════════════════════╗
+║  ПАНЕЛЬ УПРАВЛЕНИЯ САЙТОМ — Ctrl+F по маркеру в квадратных []  ║
+╚═══════════════════════════════════════════════════════════════╝
+ФОТО. Все ссылки лежат в :root ниже, больше нигде.
+  [IMG-HERO] фон первого экрана — сейчас: цех ЛевАвто, белый кроссовер на подъёмнике,
+     мастер работает под машиной, в глубине кадра сварщик за сваркой
+     замены: 1) .../get-altay/16792294/2a0000019a69160de40b15c81ced5f324cf4/XXXL — цех, машина на подъёмнике
+             2) .../get-altay/1359533/2a00000186aaac596686602af74baf5f370d/XXXL — ремзона, несколько машин
+  [IMG-HERO-M] тот же кадр на телефоне — сейчас: тот же кадр, 960px
+  [IMG-SIDE]  панель в герое — сейчас: зона приёма клиентов, трековый свет, телевизор, диван
+     замены: 1) .../get-altay/4699294/2a0000018785a69faf60319517b99fdec334/XXXL — зона ожидания
+             2) .../get-altay/9831711/2a0000018e7a7c246a8b7d875c5cd8b6af26/XXXL — интерьер сервиса
+  [IMG-PANEL] блок «Почему мы» — сейчас: токарь за станком, токарно-фрезерные работы
+     замены: 1) .../get-altay/7979184/2a00000186bd592ea5553f75a2f6bc104a6a/XXXL — мастер за работой
+             2) .../get-altay/6529816/2a0000018dbb4898f744f4ecfc691f935419/XXXL — сотрудник сервиса
+  Отбор: КАДРЫ ПРОСМОТРЕНЫ ГЛАЗАМИ. hero — цех с машиной на подъёмнике и мастером под ней;
+  side — ресепшн с трековым светом; panel — токарь за станком; promo1 — серебристый
+  кроссовер на подъёмнике со снятыми колёсами; promo2 — красный Mercedes Sprinter
+  (коммерческий транспорт); promo3 — машина с открытым капотом и коробкой Condenser
+  (кондиционер); promo4 — колесо на стенде 3D сход-развала TechnoVector.
+  Все кадры — с карточки Яндекс Карт. С сайта клиента (levauto.ru) скачать не удалось:
+  сайт закрыт проверкой браузера и на любые запросы отдаёт страницу «Проверяем ваш браузер»
+  (2628 байт), включая файлы картинок. Замените на свои, положив файл рядом в images/
+  с тем же именем.
+  [IMG-STOCK] стоковые кадры не использованы.
+ЦВЕТ. #2C50E8 рабочая + #0411B8 бренд (STEP 4.5) — снято с вывески «ЛЕВ АВТО»;
+  светлота рабочей поднята, оттенок не сдвинут. Тёмная база #0A1B2B — цвет знака с логотипа.
+ЛОГОТИП. Знак с карточки Яндекс Карт: лев в круге, тёмно-синий. Пересобран из JPEG
+  в прозрачный PNG (images/mark.png) с круглой маской. Favicon — он же, 32 и 192px,
+  apple-touch — на непрозрачной плашке #0A1B2B.
+НАЗВАНИЕ. «ЛЕВ» цветом бренда, «АВТО» белым — двухцветное по вашему правилу; в логотипе
+  надпись одноцветная, разделение сделано по слову.
+АДРЕС. На карточке Яндекс Карт — Московская обл., Мытищи, дер. Челобитьево, 42А
+  (к этому адресу привязана карта, oid=124092195979). На сайте клиента указан другой
+  адрес: «Москва, Осташковское шоссе, 70г». Взял адрес карточки, потому что к нему
+  привязана встроенная карта. Если верен адрес с сайта — поменяйте строку адреса
+  в контактах, футере и oid карты.
+ПРАЙС. Сведено 4 опубликованные цены: 3 из блока «Товары и услуги» карточки
+  (ТО и ходовая Форд Транзит — 5 000 ₽, диагностика ходовой — 3 000 ₽,
+  токарно-фрезерные работы — 1 500 ₽) и 1 из рекламного баннера клиента
+  (сход-развал 3D — 3 500 ₽). Остальные работы идут как «Считаются по осмотру».
+ГАРАНТИЯ. В карточке отмечена опция «гарантия», один из отзывов прямо пишет
+  «Дают гарантию». Упомянул как факт, без срока — срок уточните у клиента.
+ОТЗЫВЫ. 12 карточек из 565 отзывов карточки (источник — 565, правило 100+ → 10–12).
+  Все 5 звёзд, ни одного 4-звёздочного. Тексты, имена и даты — дословно из источника,
+  новые сверху. Аватарки буквенные: аватары пользователей Яндекса не публикуем —
+  они лежат в запрещённом неймспейсе, поэтому вместо фото буква в круге.
+  Первым слайдом — карточка со сводным рейтингом.
+КАРТА. Встроена сразу (oid=124092195979) — iframe виден без клика.
+ПОЛИТИКА. ШАБЛОН: текста в источнике нет, заполните поля в [квадратных скобках].
+COOKIE. Баннер виден сразу — карта встроена.
+ЗАПОЛНИТЬ ДО ПУБЛИКАЦИИ:
+  1) Заменить [скобки] в модалке политики: наименование, ИНН/ОГРН, адрес, e-mail, дата.
+  2) Решить, куда уходят заявки: ключ Web3Forms — заглушка, данные сейчас никуда
+     не отправляются (безопасно для показа клиента).
+  3) Перезалить фото: ссылки Яндекс Карт со временем умирают — положите снимки
+     в images/ под теми же именами (hero.jpg, hero-m.jpg, side.jpg, panel.jpg,
+     promo1-4.jpg).
+  4) Подтвердить номер WhatsApp: в карточке ссылка WhatsApp есть, но в ней потерян
+     номер (wa.me/+7). Поставил мобильный +7 (968) 411-77-33 — если он не тот,
+     поправьте ссылку в контактах.
+  5) Соцсети: ВКонтакте взят с сайта клиента (vk.com/levautoclub), YouTube — из карточки.
+     Telegram в источниках нет — не добавлял.
+  [IMG-PROMO] добавить акцию: вписать ссылку в :root, дубль блока в HTML.
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЛевАвто — автосервис в Челобитьево: ремонт, ТО и автокондиционеры</title>
+<meta name="description" content="Автосервис ЛевАвто в Челобитьево под Мытищами: ремонт легковых и коммерческих автомобилей, ТО, ремонт и заправка автокондиционеров, сход-развал 3D, токарно-фрезерные работы. Работаем без записи. Тел. +7 (495) 647-82-23.">
+<meta name="theme-color" content="#0A1B2B">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="ЛевАвто — автосервис в Челобитьево">
+<meta property="og:description" content="Ремонт легковых и коммерческих автомобилей, ТО, автокондиционеры, сход-развал 3D, токарно-фрезерные работы. дер. Челобитьево, 42А. Ежедневно 10:00–19:00.">
+<meta property="og:image" content="images/hero.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<noscript><style>[data-aos]{opacity:1!important;transform:none!important}.rev-swiper .swiper-wrapper{display:grid;grid-template-columns:1fr;gap:20px}.rev-scroll{display:none}</style></noscript>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700&display=swap');
+:root{
+--dark:#0A1B2B;--dark2:#061320;--ink:#0A1B2B;--mut:#5D6B7D;
+--accent:#2C50E8;--accent-light:#7A96FF;--accent-deep:#0411B8;--accent-bright:#0411B8;
+--accent-rgb:44,80,232;--accent-wash:rgba(44,80,232,.10);
+--gold:#FFC107;--ya:#FC3F1D;--ok:#2FA84F;--ice:#F4F7FA;--cream:#FBF7F2;
+--line:rgba(10,27,43,.10);--wl:rgba(255,255,255,.10);
+--d:'Russo One',Impact,'Arial Black',sans-serif;--b:'Inter',system-ui,sans-serif;
+--ease:cubic-bezier(.4,0,.2,1);
+--img-hero:url('images/hero.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-altay/16270073/2a0000019a69161cb7d2a932940f68e7c05b/XXXL') */
+--img-hero-m:url('images/hero-m.jpg');
+--img-side:url('images/side.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-altay/16430504/2a0000019a0c6c6d5fef542ddad13e22d07f/XXXL') */
+--img-panel:url('images/panel.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-altay/7979184/2a00000186bd592ea5553f75a2f6bc104a6a/XXXL') */
+--img-promo1:url('images/promo1.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-altay/10445027/2a0000018be456468e4fcd13e9d2b769e538/XXXL') */
+--img-promo2:url('images/promo2.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-vh/6275370/2a0000018b81265c72d471e25c4d78bbe9f0/orig') */
+--img-promo3:url('images/promo3.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-altay/19871159/2a0000019e71e5f85cd45c226e5742de8fbc/XXXL') */
+--img-promo4:url('images/promo4.jpg'); /* alt: url('https://avatars.mds.yandex.net/get-vh/6387763/2a0000018b659d364ac257180aba096294dd/orig') */
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;scrollbar-gutter:stable}
+html,body{max-width:100%;overflow-x:hidden}
+body{font-family:var(--b);font-size:17px;line-height:1.65;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+[hidden]{display:none!important}
+h1,h2,h3,.num,.price,.brand-name,.cphone,.t-name{font-family:var(--d);font-weight:400;letter-spacing:-.01em}
+h1{font-size:clamp(38px,7vw,72px);line-height:1.02}
+h2{font-size:clamp(30px,4vw,52px);line-height:1.06}
+h3{font-size:22px;line-height:1.2}
+h1,h2{text-wrap:balance}
+p{text-wrap:pretty;hyphens:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:100px 0}
+.lab{display:inline-flex;align-items:center;gap:12px;font:600 12px/1 var(--b);text-transform:uppercase;letter-spacing:.15em;color:var(--accent)}
+.lab::before{content:'';width:36px;height:2px;background:var(--accent)}
+.lab.c{justify-content:center}
+.sub{font-size:18px;color:var(--mut);max-width:620px;margin-top:16px}
+.hd{max-width:640px}
+.hd h2{margin-top:12px}
+.on-d .sub{color:rgba(255,255,255,.65)}
+.on-d h2{color:#fff}
+.dk{background:linear-gradient(160deg,#0A1B2B,#061320);color:#fff}
+.dk .sub{color:rgba(255,255,255,.65)}
+.dk h2{color:#fff}
+.lt{background:var(--ice)}
+.cr{background:var(--cream)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;position:relative;overflow:hidden;padding:17px 32px;border:0;border-radius:100px;background:var(--accent);color:#fff;font:600 15px/1 var(--b);letter-spacing:.02em;cursor:pointer;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.btn::before{content:'';position:absolute;inset:0;background:var(--accent-deep);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.btn>*{position:relative;z-index:1}
+.btn:hover{box-shadow:0 12px 30px rgba(var(--accent-rgb),.35)}
+.btn:hover::before{transform:scaleX(1)}
+.btn.g{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn.g::before{background:#fff}
+.btn.g:hover{color:var(--dark)}
+.btn.g:hover::before{transform:scaleX(1)}
+.ico{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--accent);z-index:1001;transform:scaleX(0);transform-origin:left}
+header{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;display:flex;align-items:center;transition:height .3s var(--ease),background .3s var(--ease),box-shadow .3s var(--ease)}
+header.on{height:64px;background:rgba(6,19,32,.95);box-shadow:0 2px 24px rgba(0,0,0,.18)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%}
+.brand{display:flex;align-items:center;gap:11px}
+.brand img{height:34px;width:auto;object-fit:contain;background:transparent!important;border:0;outline:0}
+.brand-name{font-size:22px;letter-spacing:.04em;color:#fff;white-space:nowrap}
+.bw-a{color:#8AA4FF;text-shadow:0 0 18px rgba(var(--accent-rgb),.55)}
+.bw-b{color:#fff}
+.nav ul{display:flex;align-items:center;gap:28px;list-style:none}
+.nav ul a{position:relative;font:500 14px/1 var(--b);color:rgba(255,255,255,.85);padding:8px 0}
+.nav ul a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav ul a:hover{color:#fff}
+.nphone{display:flex;align-items:center;gap:12px;animation:pulseG 6s ease-in-out infinite}
+.nphone .ico{width:38px;height:38px;border-radius:50%;background:var(--accent-wash);border:1px solid rgba(var(--accent-rgb),.3);color:var(--accent-light);font-size:15px;transition:background .3s var(--ease),color .3s var(--ease)}
+.nphone:hover .ico{background:var(--accent);color:#fff}
+.nphone b{font-family:var(--d);font-weight:400;font-size:23px;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+@keyframes pulseG{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.72;transform:scale(1.02)}}
+.ncta{padding:13px 24px}
+.burger{display:none;width:44px;height:44px;background:none;border:0;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:2px;background:#fff;transition:transform .3s var(--ease),opacity .3s var(--ease)}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:26px}
+.burger.on span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger.on span:nth-child(2){opacity:0}
+.burger.on span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+#menu{position:fixed;inset:0;z-index:999;background:rgba(6,19,32,.98);display:flex;flex-direction:column;justify-content:center;padding:96px 28px 40px;transform:translateY(-100%);transition:transform .45s var(--ease)}
+#menu.on{transform:none}
+#menu a{font-family:var(--d);font-size:32px;color:#fff;padding:12px 0;opacity:0;transform:translateY(14px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+#menu.on a{opacity:1;transform:none}
+#menu .mtel{margin-top:24px;font-size:24px;color:var(--accent-light)}
+#hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;padding:120px 0 80px;background:linear-gradient(150deg,#0A1B2B,#13283E 55%,#061320)}
+#hero::before{content:'';position:absolute;inset:0;background-image:var(--img-hero);background-size:cover;background-position:center 40%;z-index:0;will-change:transform;animation:kenBurns 25s ease-in-out infinite alternate} /* [IMG-HERO] кадрирование: подправьте второе значение 30–60% */
+@keyframes kenBurns{0%{transform:scale(1.02) translate(0,0)}33%{transform:scale(1.04) translate(-1.4%,-1%)}66%{transform:scale(1.03) translate(1.1%,-1.4%)}100%{transform:scale(1.04) translate(-.8%,.9%)}}
+#hero::after{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse at 20% 40%,rgba(var(--accent-rgb),.24),transparent 60%),linear-gradient(90deg,rgba(4,11,20,.88),rgba(4,11,20,.54) 62%,rgba(4,11,20,.68))}
+#particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hgrid{position:relative;z-index:2;display:grid;grid-template-columns:55% 45%;gap:48px;align-items:center}
+.hl .eyebrow{font:600 12px/1 var(--b);text-transform:uppercase;letter-spacing:.15em;color:var(--accent-light);display:inline-flex;align-items:center;gap:12px}
+.hl .eyebrow::before{content:'';width:36px;height:2px;background:var(--accent)}
+.hl h1{margin:20px 0 0;color:#fff}
+.hl .hsub{margin-top:20px;font-size:20px;line-height:1.6;color:rgba(255,255,255,.85);max-width:560px}
+.hcta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:28px;font-size:13px;color:rgba(255,255,255,.65)}
+.trust b{color:#fff;font-weight:600}
+.trust .ic{color:var(--accent-light)}
+.pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,193,7,.14);border:1px solid rgba(255,193,7,.45);border-radius:100px;padding:5px 12px;color:var(--gold);font:600 13px/1 var(--b)}
+.hpanel{position:relative;height:520px;clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);background-image:var(--img-side),linear-gradient(160deg,#16324F,#08131F);background-size:cover;background-position:center;box-shadow:0 40px 80px rgba(0,0,0,.5);animation:heroFloat 8s ease-in-out infinite;will-change:transform}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hbadge{position:absolute;left:26px;bottom:26px;background:rgba(0,0,0,.75);border:1px solid rgba(var(--accent-rgb),.55);border-radius:100px;padding:10px 18px;color:#fff;font:600 14px/1 var(--b);white-space:nowrap;animation:badgePulse 3s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{box-shadow:0 0 0 0 rgba(var(--accent-rgb),.4)}50%{box-shadow:0 0 0 12px rgba(var(--accent-rgb),0)}}
+#mq{background:var(--accent);padding:14px 0;overflow:hidden}
+.mq-track{display:flex;width:max-content;flex-shrink:0;animation:marquee 28s linear infinite;will-change:transform}
+.mq-set{display:flex;align-items:center;gap:34px;padding-right:34px;color:#fff;font:600 12px/1 var(--b);text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.mq-set .sep{opacity:.45}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tbar{display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding-top:8px}
+.tcell{position:relative;text-align:center;padding:8px 16px 22px}
+.tcell+.tcell::before{content:'';position:absolute;left:0;top:18%;height:64%;width:1px;background:var(--line)}
+.tbloom{position:absolute;inset:0;opacity:0;transform:scale(.94);transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none;background:radial-gradient(62% 46% at 50% 42%,rgba(var(--accent-rgb),.22),rgba(var(--accent-rgb),.07) 52%,transparent 74%)}
+.tcell:hover .tbloom,.tcell:active .tbloom,.tcell.is-tapped .tbloom,.tcell:focus-visible .tbloom{opacity:1;transform:none}
+.tcell>*{position:relative;z-index:1}
+.tcell::after{content:'';position:absolute;left:50%;bottom:0;height:2px;width:0;background:var(--accent);transform:translateX(-50%);transition:width .45s var(--ease)}
+.tcell:hover::after,.tcell.is-tapped::after{width:64%}
+.icw{width:56px;height:56px;margin:0 auto 16px;border-radius:50%;background:rgba(var(--accent-rgb),.08);border:1px solid rgba(var(--accent-rgb),.18);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--accent);transition:transform .3s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease)}
+.tcell:hover .icw,.tcell:active .icw,.tcell.is-tapped .icw,.tcell:focus-visible .icw{background:var(--accent);color:#fff;transform:translateY(-4px) scale(1.06);box-shadow:0 10px 26px rgba(var(--accent-rgb),.45),0 0 0 6px rgba(var(--accent-rgb),.10)}
+.tcell:active .icw,.tcell.is-tapped .icw{box-shadow:0 10px 26px rgba(var(--accent-rgb),.45),0 0 0 3px rgba(var(--accent-rgb),.24)}
+.tcell{-webkit-tap-highlight-color:transparent}
+.num{display:block;font-size:clamp(40px,6vw,56px);line-height:1;font-variant-numeric:tabular-nums;background:linear-gradient(105deg,var(--accent) 0 43%,var(--ink) 50%,var(--accent) 57% 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:num-sheen 4.5s linear infinite;transition:transform .3s var(--ease)}
+@keyframes num-sheen{from{background-position:0 0}to{background-position:100% 0}}
+.tcell:hover .num{transform:scale(1.06)}
+.tlab{display:block;margin-top:12px;font:600 13px/1.35 var(--b);text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.dots{position:relative;background-color:#fff;background-image:radial-gradient(rgba(10,27,43,.085) 2.25px,transparent 2.25px),radial-gradient(rgba(var(--accent-rgb),.16) 1.5px,transparent 1.5px),radial-gradient(620px 320px at 88% 6%,rgba(var(--accent-rgb),.10),transparent 70%),radial-gradient(620px 320px at 4% 98%,rgba(var(--accent-rgb),.10),transparent 70%);background-size:28px 28px,28px 28px,100% 100%,100% 100%;background-position:0 0,14px 14px,0 0,0 0}
+.dots2{position:relative;background-color:var(--cream);background-image:radial-gradient(rgba(10,27,43,.075) 1.5px,transparent 1.5px),radial-gradient(rgba(var(--accent-rgb),.14) 1.05px,transparent 1.05px),radial-gradient(560px 300px at 10% 8%,rgba(var(--accent-rgb),.09),transparent 70%),radial-gradient(560px 300px at 92% 92%,rgba(var(--accent-rgb),.09),transparent 70%);background-size:22px 22px,22px 22px,100% 100%,100% 100%;background-position:0 0,11px 11px,0 0,0 0}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.ptile{position:relative;aspect-ratio:1/1;border-radius:14px;overflow:hidden;background-size:cover;background-position:center;box-shadow:0 16px 36px rgba(10,27,43,.14)}
+.ptile span{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(4,11,20,.82);color:#fff;font:600 13px/1.3 var(--b);padding:9px 13px;border-radius:10px}
+.ptile.i1{background-image:var(--img-promo1),linear-gradient(150deg,#12283E,#2C50E8)}
+.ptile.i2{background-image:var(--img-promo2),linear-gradient(150deg,#12283E,#2C50E8)}
+.ptile.i3{background-image:var(--img-promo3),linear-gradient(150deg,#12283E,#2C50E8)}
+.ptile.i4{background-image:var(--img-promo4),linear-gradient(150deg,#12283E,#2C50E8)}
+.sgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px;margin-top:48px}
+.svc{position:relative;overflow:hidden;padding:36px 32px;border-radius:14px;background:rgba(255,255,255,.05);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--wl);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.svc:hover{box-shadow:0 24px 50px rgba(0,0,0,.45);border-color:rgba(var(--icg),.6)}
+.svc>*{position:relative;z-index:1}
+.svc .ghost{position:absolute;top:-14px;right:14px;font-family:var(--d);font-size:120px;line-height:1;color:rgba(var(--accent-rgb),.07);z-index:0;pointer-events:none}
+.svc .top{width:40px;height:3px;border-radius:2px;background:var(--accent);margin-bottom:22px}
+.icbox{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--ic);transition:filter .3s var(--ease),transform .3s var(--ease)}
+.svc:hover .icbox i{filter:drop-shadow(0 0 6px rgba(var(--icg),.55)) drop-shadow(0 0 16px rgba(var(--icg),.32))}
+.svc:hover .icbox{transform:scale(1.06)}
+.svc h3{margin-top:20px;color:#fff}
+.svc p{margin-top:12px;font-size:16px;line-height:1.55;color:rgba(255,255,255,.7);max-width:62ch}
+.svc .ops{margin-top:16px;font-size:15px;line-height:1.6;color:rgba(255,255,255,.62)}
+.svc .strip{margin-top:22px;background:var(--accent-wash);border-radius:10px;padding:12px 14px}
+.svc .strip .price{display:block;font-family:var(--d);font-size:24px;color:var(--accent-light);font-variant-numeric:tabular-nums}
+.svc .strip .price.mut{font-family:var(--b);font-size:17px;font-weight:600;color:rgba(255,255,255,.8)}
+.svc .strip small{display:block;margin-top:4px;font-size:13px;color:rgba(255,255,255,.6)}
+.svc .go{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font:600 15px/1 var(--b);color:var(--accent-light)}
+.svc .go i{transition:transform .3s var(--ease)}
+.svc:hover .go i{transform:translateX(6px)}
+.svc.feat{grid-row:span 2;background:rgba(var(--accent-rgb),.15);border-color:rgba(var(--accent-rgb),.4)}
+.svc.feat .icbox{width:56px;height:56px;border-radius:50%;background:rgba(var(--icg),.16);font-size:26px}
+.svc.feat h3{font-size:30px}
+.chips{grid-column:1/-1;padding:24px 26px;border:1px dashed rgba(var(--accent-rgb),.3);border-radius:14px;background:rgba(var(--accent-rgb),.07)}
+.chips .cl{display:block;font:600 12px/1 var(--b);text-transform:uppercase;letter-spacing:.15em;color:var(--accent-light);margin-bottom:16px}
+.chips ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.chips li{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;font-size:14px;background:rgba(255,255,255,.05);border:1px solid rgba(var(--accent-rgb),.22);color:rgba(255,255,255,.85);transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.chips li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.chips li:hover{transform:translateY(-2px);border-color:var(--accent)}
+.chips li.more{border-style:dashed;color:var(--accent-light)}
+.chips li.more::before{background:none;width:0}
+.p-group{border-bottom:1px solid rgba(10,27,43,.09)}
+.p-group.hide{display:none}
+.p-head{display:flex;align-items:center;gap:14px;width:100%;padding:18px 0;background:none;border:0;cursor:pointer;text-align:left}
+.p-head h3{flex:1;font-family:var(--d);font-size:22px;color:var(--ink)}
+.p-head .cnt{font:500 14px/1 var(--b);color:var(--mut)}
+.p-head .chev{color:var(--accent);transition:transform .35s var(--ease)}
+.p-group.closed .chev{transform:rotate(-90deg)}
+.p-body{display:grid;grid-template-rows:1fr;transition:grid-template-rows .5s var(--ease)}
+.p-group.closed .p-body{grid-template-rows:0fr}
+.p-bin{overflow:hidden;min-height:0}
+.row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;padding:11px 0;font-size:16px}
+.row .nm{position:relative;overflow:hidden}
+.row .nm::after{content:'';position:absolute;left:0;right:0;bottom:5px;border-bottom:1px dotted rgba(10,27,43,.22)}
+.row .nm span{position:relative;background:var(--ice);padding-right:8px}
+.row .u{display:block;font-size:13px;color:var(--mut);margin-top:2px}
+.row .price{font-family:var(--d);font-size:19px;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.row .price.mut{font-family:var(--b);font-size:14px;color:var(--mut)}
+.p-total{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:32px;padding:22px 26px;border-radius:14px;background:var(--accent-wash);font-size:16px}
+.p-total a{font:600 16px/1 var(--b);color:var(--accent)}
+.why{display:grid;grid-template-columns:48% 48%;gap:4%;align-items:center}
+.wimg{height:560px;border-radius:16px;background-image:var(--img-panel),linear-gradient(160deg,#16324F,#08131F);background-size:cover;background-position:center;box-shadow:0 24px 50px rgba(10,27,43,.2)}
+.wlist{list-style:none;margin-top:28px;display:grid;gap:16px}
+.wlist li{display:flex;gap:14px;font-size:17px;line-height:1.55}
+.wlist .ck{width:30px;height:30px;border-radius:50%;background:var(--accent-wash);border:1px solid rgba(var(--accent-rgb),.3);color:var(--accent);font-size:14px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center}
+.wstat{margin-top:22px;font-size:20px;line-height:1.5;max-width:58ch}
+.wstat b{color:var(--accent)}
+.rate{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+.stars{color:var(--gold);font-size:19px;letter-spacing:3px}
+#reviews .rev-scroll{position:relative;left:auto;right:auto;bottom:auto;top:auto;width:min(420px,72%);height:5px;margin:24px auto 0;border-radius:100px;background:rgba(255,255,255,.14);touch-action:none}
+.rev-scroll .swiper-scrollbar-drag{background:linear-gradient(90deg,var(--accent),var(--accent-light));border-radius:100px;cursor:grab}
+.rev-scroll .swiper-scrollbar-drag:active{cursor:grabbing}
+.rev-swiper{margin-top:32px;position:relative;-webkit-user-select:none;user-select:none;touch-action:pan-y;overflow:hidden}
+.rev-swiper .swiper-wrapper{align-items:flex-start;will-change:transform}
+.rev-swiper .swiper-slide{height:auto;display:flex;transform:translateZ(0);backface-visibility:hidden}
+.t-card{width:100%;display:block;padding:30px 28px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid var(--wl)}
+.t-top{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--d);font-size:20px;color:var(--accent-light);background:var(--accent-wash);border:1px solid rgba(var(--accent-rgb),.28)}
+.t-name{font-size:20px;color:#fff;letter-spacing:.01em}
+.t-date{font-size:12.5px;color:rgba(255,255,255,.5)}
+.t-stars{color:var(--gold);font-size:19px;letter-spacing:3px;margin-top:14px}
+.t-card p{margin-top:12px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.8)}
+.t-src{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;color:rgba(255,255,255,.5)}
+.t-src .bi{width:12px;height:14px;display:block;fill:currentColor}
+.sum{background:linear-gradient(150deg,rgba(var(--accent-rgb),.28),rgba(255,255,255,.04))}
+.sum .big{font-family:var(--d);font-size:56px;line-height:1;color:#fff}
+.readall{display:flex;align-items:center;justify-content:space-between;gap:16px;width:min(420px,100%);margin:36px auto 0;padding:0 22px;height:56px;border-radius:100px;border:1px solid rgba(var(--accent-rgb),.5);background:var(--accent-wash);transition:background .3s var(--ease),transform .3s var(--ease)}
+.readall:hover{background:rgba(var(--accent-rgb),.16);transform:translateY(-2px)}
+.readall .bi{width:22px;height:26px;display:block;fill:currentColor}
+.readall span{color:#fff;font:600 15px/1.3 var(--b);display:flex;align-items:center;gap:10px}
+.readall b{color:var(--accent-light);display:flex;align-items:center;gap:8px;font-size:15px}
+.readall i{transition:transform .3s var(--ease)}
+.readall:hover i{transform:translateX(6px)}
+.cphone{display:block;font-family:var(--d);font-size:44px;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.1}
+.cphones{display:flex;flex-direction:column;align-items:center;gap:8px}
+.cpitem{display:flex;flex-direction:column;align-items:center;position:relative}
+.cprow{display:flex;align-items:center;gap:12px}
+.cphone-lab{display:block;margin-top:4px;font:700 12px/1 var(--b);text-transform:uppercase;letter-spacing:.14em;color:var(--mut)}
+.cphone.sm{font-size:26px;color:var(--accent-deep)}
+.cbtn{width:24px;height:24px;border-radius:8px;border:1px solid rgba(var(--accent-rgb),.4);background:var(--accent-wash);color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;transition:background .3s var(--ease),transform .3s var(--ease),color .3s var(--ease)}
+.cbtn:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+.cbtn.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.cbtn.sm2{width:19px;height:19px;font-size:9px}
+.cg{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start;margin-top:48px}
+.ctr{display:grid;gap:26px}
+.ctrow{display:flex;gap:16px}
+.cico{width:44px;height:44px;border-radius:12px;background:var(--accent-wash);border:1px solid rgba(var(--accent-rgb),.22);color:var(--accent);font-size:17px;flex-shrink:0}
+.clab{display:block;font:600 12px/1 var(--b);text-transform:uppercase;letter-spacing:.12em;color:var(--mut);margin-bottom:6px}
+.cval{font-size:17px;font-weight:600;line-height:1.5}
+.ctr a.v{display:block;font-family:var(--d);font-size:21px;color:var(--accent);font-variant-numeric:tabular-nums}
+.ctr a.mail{font-size:17px;color:var(--accent)}
+.hours{display:grid;gap:6px;margin-top:8px;max-width:384px}
+.hours>span{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:16px;font-size:15px;padding:6px 12px;margin:0 -12px;border-radius:10px}
+.hours>span b{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.hours>span.wk{background:var(--accent-wash)}
+.hbreak{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px dashed rgba(10,27,43,.2);color:var(--mut);font-size:13.5px}
+.schips{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.schip{display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:100px;background:var(--accent-wash);border:1px solid rgba(var(--accent-rgb),.28);color:var(--ink);font:600 14px/1 var(--b);transition:background .3s var(--ease),transform .3s var(--ease)}
+.schip:hover{background:rgba(var(--accent-rgb),.18);transform:translateY(-2px)}
+.schip .chi{width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.schip .chi svg{width:100%;height:100%;display:block}
+form.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:0 18px 40px rgba(10,27,43,.08);display:grid;gap:16px}
+form.card label{display:block;font:600 13px/1 var(--b);color:var(--mut);margin-bottom:7px}
+form.card input,form.card textarea{width:100%;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:16px;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+form.card input:focus,form.card textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(var(--accent-rgb),.18)}
+.fsel{position:relative}
+.fsel button{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:16px;cursor:pointer;text-align:left}
+.fsel ul{position:absolute;left:0;right:0;top:calc(100% + 6px);max-height:220px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 18px 40px rgba(10,27,43,.14);list-style:none;z-index:20;opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .25s var(--ease),transform .25s var(--ease)}
+.fsel.on ul{opacity:1;transform:none;pointer-events:auto}
+.fsel ul li{padding:12px 16px;font-size:15px;cursor:pointer}
+.fsel ul li:hover{background:var(--accent-wash)}
+.cap{display:flex;flex-wrap:wrap;align-items:center;gap:12px;font-size:15px}
+.cap input{width:120px;padding:12px 14px}
+.cap button{width:38px;height:38px;border-radius:10px;border:0;background:none;color:var(--accent);font-size:17px;cursor:pointer}
+.err{color:#E63946;font-size:13px;display:flex;align-items:center;gap:7px}
+.cons{background:var(--accent-wash);border-radius:10px;padding:14px;font-size:13.5px;line-height:1.5;color:var(--mut)}
+.cons input{width:auto;margin-right:8px;vertical-align:-2px}
+.lnk{background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0;font-size:inherit}
+#fsuc{display:none;padding:18px;border-radius:12px;background:rgba(47,168,79,.12);border:1px solid rgba(47,168,79,.4);color:#1F7A38;font-weight:600}
+#fsuc.show{display:block}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.map-w{position:relative;margin-top:8px;border-radius:16px;overflow:hidden}
+.map-w iframe{display:block;width:100%;height:380px;border:0}
+.map-lock{position:absolute;inset:0;z-index:2;cursor:pointer;border-radius:16px;background:rgba(6,19,32,.06);display:flex;align-items:flex-start;justify-content:center;padding-top:16px}
+.map-lock.off{display:none}
+.map-lock span{pointer-events:none;display:inline-flex;align-items:center;gap:9px;background:rgba(6,19,32,.86);color:#fff;border-radius:100px;padding:9px 16px;font:500 13px/1 var(--b)}
+.map-lock span i{color:var(--accent-light)}
+footer{background:var(--dark2);color:#fff;border-top:3px solid var(--accent);padding:64px 0 28px}
+.fgrid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px}
+.fbrand{display:flex;align-items:center;gap:11px;margin-bottom:18px}
+.fbrand img{height:34px;width:auto}
+footer p,footer li{font-size:15px;line-height:1.7;color:rgba(255,255,255,.62)}
+footer h4{font:600 13px/1 var(--b);text-transform:uppercase;letter-spacing:.14em;color:var(--accent-light);margin-bottom:18px}
+footer ul{list-style:none;display:grid;gap:10px}
+footer ul a:hover{color:#fff}
+footer .ftel{display:block;font-family:var(--d);font-size:20px;color:var(--accent-light);font-variant-numeric:tabular-nums}
+.fbot{margin-top:48px;padding-top:24px;border-top:1px solid var(--wl);display:flex;justify-content:space-between;gap:16px;font-size:13px;color:rgba(255,255,255,.5)}
+#call{position:fixed;left:20px;bottom:24px;z-index:900;width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;display:none;align-items:center;justify-content:center;font-size:20px;animation:callPulse 2.5s infinite}
+@keyframes callPulse{0%,100%{box-shadow:0 0 0 0 rgba(var(--accent-rgb),.5)}50%{box-shadow:0 0 0 12px rgba(var(--accent-rgb),0)}}
+#cookie{position:fixed;left:0;right:0;bottom:0;z-index:950;display:flex;align-items:center;gap:14px;justify-content:flex-start;padding:12px 160px 12px 24px;background:rgba(6,19,32,.96);border-top:1px solid var(--accent);color:rgba(255,255,255,.8);font-size:13px}
+#cookie button{border:0;background:none;color:var(--accent-light);text-decoration:underline;cursor:pointer;font-size:13px}
+#cookie .ok{padding:8px 18px;border-radius:100px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+dialog#policy{margin:auto;position:fixed;inset:0;width:min(720px,100% - 32px);height:fit-content;max-height:82vh;overflow-y:auto;border:0;border-radius:16px;padding:32px;box-shadow:0 40px 90px rgba(0,0,0,.5);font-size:15px;line-height:1.7;color:var(--ink)}
+dialog#policy::backdrop{background:rgba(0,0,0,.62);backdrop-filter:blur(3px)}
+dialog#policy h3{margin:18px 0 8px}
+dialog#policy p,dialog#policy li{font-size:15px}
+dialog#policy ul{margin:8px 0 8px 20px}
+#pclose{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--ice);cursor:pointer}
+html.rv [data-aos]{opacity:0;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+html.rv [data-aos='fade-up']{transform:translateY(28px)}
+html.rv [data-aos='fade-right']{transform:translateX(-32px)}
+html.rv [data-aos='fade-left']{transform:translateX(32px)}
+html.rv [data-aos='zoom-in']{transform:scale(.94)}
+html.rv .aos-in{opacity:1!important;transform:none!important}
+html.no-swiper .rev-swiper .swiper-wrapper{display:grid;grid-template-columns:1fr;gap:20px}
+html.no-swiper .rev-scroll{display:none}
+@media (max-width:1024px){
+.sgrid{grid-template-columns:1fr 1fr}
+.hgrid{grid-template-columns:1fr 1fr}
+.fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+.cg{grid-template-columns:1fr}
+.svc.feat{grid-row:auto}
+header{background:rgba(6,19,32,.94);height:64px;box-shadow:0 2px 20px rgba(0,0,0,.2)}
+.nav ul,.ncta{display:none}
+.burger{display:block}
+.why{grid-template-columns:1fr;gap:40px}
+.wimg{height:380px;order:-1}
+#hero::before{animation:none}
+.tbar{grid-template-columns:1fr 1fr}
+.tcell+.tcell::before{display:none}
+}
+@media (max-width:768px){
+#hero{min-height:100vh;min-height:100svh;padding:96px 0 64px}
+#hero::before{background-image:var(--img-hero-m);background-position:center 45%}
+#hero::after{background:radial-gradient(ellipse at 20% 40%,rgba(var(--accent-rgb),.2),transparent 60%),rgba(0,0,0,.66)}
+.hgrid{grid-template-columns:1fr;text-align:center}
+.hpanel{display:none}
+.hl .hsub,.hl .trust{justify-content:center;margin-left:auto;margin-right:auto}
+.hcta{justify-content:center}
+.hl .eyebrow{justify-content:center}
+.pgrid{grid-template-columns:1fr 1fr}
+.sgrid{grid-template-columns:1fr}
+.chips{grid-column:auto}
+#call{display:flex}
+.fbot{padding-bottom:88px}
+section{padding:64px 0}
+.mq-track{animation-duration:36s}
+}
+@media (max-width:560px){
+.wrap{padding:0 20px}
+.nav{gap:14px}
+.nav>div{gap:14px!important}
+.brand{flex:0 1 auto;min-width:0}
+.brand img{height:26px}
+.brand-name{font-size:18px}
+.nphone b{display:none}
+.nphone .ico{width:40px;height:40px;font-size:16px}
+.burger{flex:0 0 auto}
+.pgrid{grid-template-columns:1fr}
+.fgrid{grid-template-columns:1fr}
+.hcta .btn{width:100%}
+#cookie{padding:12px 24px;flex-wrap:wrap}
+.cphone{font-size:30px}
+.cphone.sm{font-size:21px}
+}
+@media (max-width:480px){
+.row .nm::after{display:none}
+.num{font-size:40px}
+}
+@media (max-width:400px){
+.nav{gap:10px}
+.nav>div{gap:10px!important}
+.brand img{height:22px}
+.brand-name{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){
+#hero::before,.hpanel,.hbadge,.nphone,#call{animation:none}
+.num{animation:none}
+.mq-track{animation-duration:40s}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-ya" viewBox="0 0 61 91"><path fill="#FC3F1D" d="M60.5 91H44.6V12.3h-7.1c-13 0-19.8 6.5-19.8 16.2 0 11 4.7 16.1 14.4 22.6l8 5.4L17.1 91H0l20.7-30.8C8.8 51.7 2.1 43.4 2.1 29.4 2.1 11.9 14.3 0 37.4 0h23v91z"/></symbol>
+<symbol id="i-wa" viewBox="-8 -8 40 40"><path fill="#25D366" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+<symbol id="i-vk" viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#0077FF"/><text x="12" y="16.6" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="10.5" font-weight="700" fill="#fff">VK</text></symbol>
+<symbol id="i-yt" viewBox="0 0 24 24"><rect x="0" y="3.5" width="24" height="17" rx="4.5" fill="#FF0000"/><path fill="#fff" d="M10 8.6v6.8l5.8-3.4z"/></symbol>
+</defs></svg>
+<div id="bar"></div>
+<header id="hdr"><div class="wrap nav">
+<a class="brand" href="#hero"><img src="images/mark.png" alt="ЛевАвто" width="34" height="34" onerror="this.style.display='none'"><span class="brand-name"><span class="bw-a">ЛЕВ</span> <span class="bw-b">АВТО</span></span></a>
+<ul>
+<li><a href="#services">Услуги</a></li>
+<li><a href="#prices">Цены</a></li>
+<li><a href="#why">Почему мы</a></li>
+<li><a href="#reviews">Отзывы</a></li>
+<li><a href="#cont">Контакты</a></li>
+</ul>
+<div style="display:flex;align-items:center;gap:18px">
+<a class="nphone" href="tel:+74956478223"><span class="ico"><i class="fa-solid fa-phone"></i></span><b>+7 (495) 647-82-23</b></a>
+<a class="btn ncta" href="#cont"><span>Заявка</span></a>
+<button class="burger" id="bg" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</div></header>
+<nav id="menu" aria-label="Мобильное меню">
+<a href="#services">Услуги</a><a href="#prices">Цены</a><a href="#why">Почему мы</a><a href="#reviews">Отзывы</a><a href="#cont">Контакты</a>
+<a class="mtel" href="tel:+74956478223">+7 (495) 647-82-23</a>
+<a class="mtel" href="tel:+74957900037">+7 (495) 790-00-37</a>
+</nav>
+<section id="hero">
+<div id="particles"></div>
+<div class="wrap hgrid">
+<div class="hl">
+<span class="eyebrow">Автосервис · Челобитьево, Мытищи · Осташковское шоссе</span>
+<h1>Ремонт автомобилей, ТО и автокондиционеры</h1>
+<p class="hsub">Специализируемся на французских машинах — Peugeot, Renault, Citroen. Берём и другие марки: корейские, японские, китайские, европейские, а также коммерческий транспорт. Запчасти в наличии и на заказ, можно со своими.</p>
+<div class="hcta">
+<a class="btn" href="#cont"><span>Оставить заявку</span><i class="fa-solid fa-arrow-right"></i></a>
+<a class="btn g" href="tel:+74956478223"><i class="fa-solid fa-phone"></i><span>+7 (495) 647-82-23</span></a>
+</div>
+<div class="trust">
+<span><i class="fa-solid fa-star ic"></i> <b>5,0 из 5</b> — 1 123 оценки</span>
+<span><i class="fa-solid fa-comments ic"></i> <b>565 отзывов</b> на Яндекс Картах</span>
+<span class="pill"><i class="fa-solid fa-award"></i> Хорошее место 2026</span>
+</div>
+</div>
+<div class="hpanel" role="img" aria-label="Зона приёма клиентов автосервиса ЛевАвто"><span class="hbadge"><i class="fa-solid fa-star" style="color:#FFC107"></i> 5,0 из 5 — 1 123 оценки</span></div>
+</div>
+</section>
+<div id="mq" aria-label="Ключевые факты об автосервисе">
+<div class="mq-track" id="mqt">
+<div class="mq-set">
+<span><i class="fa-solid fa-star"></i> 5,0 из 5 — 1 123 оценки</span><span class="sep">·</span>
+<span><i class="fa-solid fa-comments"></i> 565 отзывов на Яндекс Картах</span><span class="sep">·</span>
+<span><i class="fa-solid fa-award"></i> Хорошее место 2026</span><span class="sep">·</span>
+<span><i class="fa-solid fa-snowflake"></i> Ремонт и заправка автокондиционеров</span><span class="sep">·</span>
+<span><i class="fa-solid fa-screwdriver-wrench"></i> Ремонт французских, корейских, японских машин</span><span class="sep">·</span>
+<span><i class="fa-solid fa-truck"></i> Коммерческий транспорт</span><span class="sep">·</span>
+<span><i class="fa-solid fa-gears"></i> Сход-развал 3D и токарные работы</span><span class="sep">·</span>
+<span><i class="fa-solid fa-clock"></i> Ежедневно 10:00–19:00, без записи</span><span class="sep">·</span>
+</div>
+<div class="mq-set" aria-hidden="true">
+<span><i class="fa-solid fa-star"></i> 5,0 из 5 — 1 123 оценки</span><span class="sep">·</span>
+<span><i class="fa-solid fa-comments"></i> 565 отзывов на Яндекс Картах</span><span class="sep">·</span>
+<span><i class="fa-solid fa-award"></i> Хорошее место 2026</span><span class="sep">·</span>
+<span><i class="fa-solid fa-snowflake"></i> Ремонт и заправка автокондиционеров</span><span class="sep">·</span>
+<span><i class="fa-solid fa-screwdriver-wrench"></i> Ремонт французских, корейских, японских машин</span><span class="sep">·</span>
+<span><i class="fa-solid fa-truck"></i> Коммерческий транспорт</span><span class="sep">·</span>
+<span><i class="fa-solid fa-gears"></i> Сход-развал 3D и токарные работы</span><span class="sep">·</span>
+<span><i class="fa-solid fa-clock"></i> Ежедневно 10:00–19:00, без записи</span><span class="sep">·</span>
+</div>
+</div>
+</div>
+<section class="lt" id="trust">
+<div class="wrap">
+<div class="tbar">
+<div class="tcell" data-aos="fade-up"><span class="tbloom"></span><span class="icw"><i class="fa-solid fa-comments"></i></span><b class="num" data-to="565">565</b><span class="tlab">отзывов на Яндекс Картах</span></div>
+<div class="tcell" data-aos="fade-up" data-aos-delay="80"><span class="tbloom"></span><span class="icw"><i class="fa-solid fa-thumbs-up"></i></span><b class="num" data-to="1123">1 123</b><span class="tlab">оценки клиентов</span></div>
+<div class="tcell" data-aos="fade-up" data-aos-delay="160"><span class="tbloom"></span><span class="icw"><i class="fa-solid fa-car-side"></i></span><b class="num" data-to="34">34</b><span class="tlab">марки автомобилей</span></div>
+<div class="tcell" data-aos="fade-up" data-aos-delay="240"><span class="tbloom"></span><span class="icw"><i class="fa-solid fa-clock"></i></span><b class="num" data-to="9">9</b><span class="tlab">часов работы каждый день</span></div>
+<div class="tcell" data-aos="fade-up" data-aos-delay="240"><span class="tbloom"></span><span class="icw"><i class="fa-solid fa-star"></i></span><b class="num">5,0</b><span class="tlab">рейтинг Яндекс Карт</span></div>
+</div>
+</div>
+</section>
+<section class="dots" id="promo">
+<div class="wrap">
+<div class="hd" data-aos="fade-up"><span class="lab">Направления</span><h2>Чем занимается сервис</h2><p class="sub">Четыре направления из карточки и с сайта клиента: кондиционеры, ходовая, коммерческий транспорт и 3D сход-развал.</p></div>
+<div class="pgrid">
+<div class="ptile i1" data-aos="zoom-in" role="img" aria-label="Ремонт ходовой и ТО: кроссовер на подъёмнике со снятыми колёсами"><span>Ремонт ходовой и ТО</span></div>
+<div class="ptile i2" data-aos="zoom-in" data-aos-delay="80" role="img" aria-label="Ремонт коммерческого транспорта: микроавтобус в цехе сервиса"><span>Ремонт коммерческого транспорта</span></div>
+<div class="ptile i3" data-aos="zoom-in" data-aos-delay="160" role="img" aria-label="Ремонт автокондиционеров: автомобиль с открытым капотом, конденсатор кондиционера"><span>Ремонт автокондиционеров</span></div>
+<div class="ptile i4" data-aos="zoom-in" data-aos-delay="240" role="img" aria-label="Сход-развал 3D: колесо на стенде развал-схождения"><span>Сход-развал 3D</span></div>
+</div>
+</div>
+</section>
+<section class="dk" id="services">
+<div class="wrap">
+<div class="hd" data-aos="fade-up"><span class="lab">Услуги</span><h2>Что мы ремонтируем</h2><p class="sub">Пять направлений, по которым в источниках есть описание работ. Ещё больше — в прайсе и в карточке на Яндекс Картах.</p></div>
+<div class="sgrid">
+<article class="svc feat" style="--ic:#5BC8E8;--icg:91,200,232" data-aos="fade-up"><span class="ghost">01</span><span class="top"></span><span class="icbox"><i class="fa-solid fa-snowflake"></i></span><h3>Ремонт автокондиционеров</h3><p>Наша основная тема. Меняем и ремонтируем трубки, ищем утечки, меняем компрессоры и радиаторы, заправляем систему. Трубку, которая развалилась в руках, приносят к нам отдельно — берёмся и за такие случаи.</p><div class="ops">Ремонт трубок · поиск утечек · компрессор · заправка системы · электрика кондиционера</div><div class="strip"><span class="price mut">Стоимость — по осмотру</span><small>После диагностики называем цену и объём работ</small></div><a class="go" href="#cont">Уточнить по своей машине <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="svc" style="--ic:#D9B36A;--icg:217,179,106" data-aos="fade-up" data-aos-delay="80"><span class="ghost">02</span><span class="top"></span><span class="icbox"><i class="fa-solid fa-magnifying-glass-chart"></i></span><h3>Диагностика и ремонт ходовой</h3><p>Осматриваем машину целиком, выделяем то, что критично сейчас, и отдельно то, что спокойно доходит до следующей замены. Запчасти в наличии и на заказ, можно приехать со своими.</p><div class="ops">Диагностика ходовой · запчасти в наличии и на заказ · можно со своими запчастями</div><div class="strip"><span class="price">3 000 ₽</span><small>Диагностика ходовой, запчасти в наличии и на заказ</small></div><a class="go" href="#prices">Смотреть цены <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="svc" style="--ic:#9BB0C4;--icg:155,176,196" data-aos="fade-up" data-aos-delay="160"><span class="ghost">03</span><span class="top"></span><span class="icbox"><i class="fa-solid fa-truck"></i></span><h3>Коммерческий транспорт</h3><p>Отдельное направление — микроавтобусы и лёгкий коммерческий транспорт. Форд Транзит ведём целиком: ТО и ходовая часть в одной работе. Есть ремонт рефрижераторов.</p><div class="ops">Форд Транзит · ТО · ходовая часть · рефрижераторы</div><div class="strip"><span class="price">5 000 ₽</span><small>Ремонт Форд Транзит: ТО и ходовая</small></div><a class="go" href="#prices">Смотреть цены <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="svc" style="--ic:#C98A6B;--icg:201,138,107" data-aos="fade-up" data-aos-delay="240"><span class="ghost">04</span><span class="top"></span><span class="icbox"><i class="fa-solid fa-arrows-left-right-to-line"></i></span><h3>Сход-развал 3D</h3><p>Развал-схождение на стенде с компьютером. Делаем после ремонта ходовой, после ударов и просто когда машину тянет в сторону или неравномерно ест шины.</p><div class="ops">Стенд 3D · после ремонта ходовой · после ДТП</div><div class="strip"><span class="price">3 500 ₽</span><small>Сход-развал 3D</small></div><a class="go" href="#prices">Смотреть цены <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="svc" style="--ic:#A8D5A2;--icg:168,213,162" data-aos="fade-up" data-aos-delay="240"><span class="ghost">05</span><span class="top"></span><span class="icbox"><i class="fa-solid fa-gears"></i></span><h3>Токарно-фрезерные работы</h3><p>Свой станок и свой токарь. Вытачиваем деталь по чертежу или по образцу — когда нужной запчасти нет в продаже или ждать её слишком долго.</p><div class="ops">По чертежу · по образцу · сварка · восстановление деталей</div><div class="strip"><span class="price">1 500 ₽</span><small>Токарно-фрезерные работы</small></div><a class="go" href="#prices">Смотреть цены <i class="fa-solid fa-arrow-right"></i></a></article>
+<div class="chips" data-aos="fade-up"><span class="cl">Ещё в сервисе</span><ul>
+<li>Замена масла и ТО</li><li>Тормозная система</li><li>Ремонт ГРМ</li><li>Замена сцепления</li><li>Ремонт АКПП и МКПП</li><li>Автоэлектрика</li><li>Стартеры и генераторы</li><li>Чистка форсунок</li><li>Ремонт радиаторов</li><li>Ремонт ГБЦ</li><li>Шиномонтаж</li>
+<li class="more">+9 ещё</li>
+</ul></div>
+</div>
+</div>
+</section>
+<section class="lt" id="prices">
+<div class="wrap">
+<div class="hd" data-aos="fade-up"><span class="lab">Цены</span><h2>Цены на работы в автосервисе ЛевАвто</h2><p class="sub">Четыре цены опубликованы в карточке организации и в рекламных материалах сервиса. Остальные работы считаются после осмотра — по машине и объёму.</p></div>
+<div id="pgroups" style="margin-top:40px">
+<div class="p-group" data-g="priced">
+<button class="p-head" aria-expanded="true"><h3>С опубликованной ценой</h3><span class="cnt">4 позиции</span><i class="fa-solid fa-chevron-down chev"></i></button>
+<div class="p-body"><div class="p-bin">
+<div class="row"><span class="nm"><span>Диагностика ходовой</span></span><span class="price">3&nbsp;000&nbsp;₽</span></div>
+<div class="row"><span class="nm"><span>Сход-развал 3D</span></span><span class="price">3&nbsp;500&nbsp;₽</span></div>
+<div class="row"><span class="nm"><span>Ремонт Форд Транзит: ТО и ходовая</span></span><span class="price">5&nbsp;000&nbsp;₽</span></div>
+<div class="row"><span class="nm"><span>Токарно-фрезерные работы</span><span class="u">Выточим деталь по чертежу или образцу</span></span><span class="price">1&nbsp;500&nbsp;₽</span></div>
+</div></div></div>
+<div class="p-group closed" data-g="byvisit">
+<button class="p-head" aria-expanded="false"><h3>Считаются по осмотру</h3><span class="cnt">5 позиций</span><i class="fa-solid fa-chevron-down chev"></i></button>
+<div class="p-body"><div class="p-bin">
+<div class="row"><span class="nm"><span>Ремонт двигателя</span></span><span class="price mut">по осмотру</span></div>
+<div class="row"><span class="nm"><span>Замена ремня и цепи ГРМ</span></span><span class="price mut">по осмотру</span></div>
+<div class="row"><span class="nm"><span>Замена сцепления</span></span><span class="price mut">по осмотру</span></div>
+<div class="row"><span class="nm"><span>Ремонт АКПП и МКПП</span></span><span class="price mut">по осмотру</span></div>
+<div class="row"><span class="nm"><span>Сварочные работы</span></span><span class="price mut">по осмотру</span></div>
+</div></div></div>
+</div>
+<div class="p-total"><span>В источниках опубликованы 4 цены. Остальные работы сервис считает после осмотра автомобиля.</span><a href="#cont">Уточнить цену по вашей задаче <i class="fa-solid fa-arrow-right"></i></a></div>
+</div>
+</section>
+<section class="cr" id="why">
+<div class="wrap why">
+<div class="wimg" data-aos="fade-right" role="img" aria-label="Токарь ЛевАвто за станком: токарно-фрезерные работы по чертежу или образцу"></div>
+<div data-aos="fade-left">
+<span class="lab">Почему мы</span>
+<h2>Сервис, который пускает в ремзону</h2>
+<p class="wstat">Рейтинг <b>5,0 из 5</b> при 1 123 оценках и 565 отзывах на Яндекс Картах. Награда «Хорошее место 2026».</p>
+<ul class="wlist">
+<li><span class="ck"><i class="fa-solid fa-check"></i></span><span>Пускаем в ремзону: вы стоите рядом и видите, что именно делают с вашей машиной</span></li>
+<li><span class="ck"><i class="fa-solid fa-check"></i></span><span>Работаем без записи — приезжаете в удобное время и в порядке живой очереди</span></li>
+<li><span class="ck"><i class="fa-solid fa-check"></i></span><span>Можно приехать со своими запчастями, а можно взять наши — в наличии или под заказ</span></li>
+<li><span class="ck"><i class="fa-solid fa-check"></i></span><span>Свой токарный станок и сварка: делаем детали, которых нет в продаже</span></li>
+<li><span class="ck"><i class="fa-solid fa-check"></i></span><span>Французские, корейские, японские, китайские, европейские марки и коммерческий транспорт</span></li>
+<li><span class="ck"><i class="fa-solid fa-check"></i></span><span>Гарантия на выполненные работы — заявлена в карточке организации</span></li>
+</ul>
+<a class="btn" href="#cont" style="margin-top:32px"><span>Оставить заявку</span></a>
+</div>
+</div>
+</section>
+<section class="dk" id="reviews">
+<div class="wrap">
+<div class="hd" style="text-align:center;margin:0 auto" data-aos="fade-up"><span class="lab c">Отзывы</span><h2>Что пишут клиенты</h2><p class="sub" style="margin-left:auto;margin-right:auto">565 отзывов на Яндекс Картах, рейтинг 5,0 из 5 при 1 123 оценках.</p></div>
+<div class="rate" data-aos="fade-up">
+<span class="stars" aria-label="5 из 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+<span style="color:rgba(255,255,255,.75);font-size:17px">5,0 из 5 — 1 123 оценки · 565 отзывов на Яндекс Картах</span>
+<span class="pill"><i class="fa-solid fa-award"></i> Хорошее место 2026</span>
+</div>
+<div class="rev-scroll swiper-scrollbar" id="revscroll"></div>
+<div class="rev-swiper swiper" id="revs">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><div class="t-card sum">
+<div class="t-top"><span class="av" aria-hidden="true">Я</span><div><div class="t-name">Рейтинг автосервиса</div><div class="t-date">Яндекс Карты</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<span class="big" style="display:block;margin-top:16px">5,0</span>
+<p>1 123 оценки и 565 отзывов. Награда «Хорошее место 2026» — по оценкам пользователей Яндекс Карт. Оценки по разделам: обслуживание — 94% положительных, ремонт — 87%, автокондиционер — 82%, запчасти — 85%, комфорт — 92%.</p>
+<a class="readall" style="margin:20px 0 0" href="https://yandex.ru/maps/org/lev_avto/124092195979/reviews/" target="_blank" rel="noopener"><span><svg class="bi"><use href="#i-ya"></use></svg> 5,0 · 1 123 оценки</span><b>Все отзывы <i class="fa-solid fa-arrow-right"></i></b></a>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">Е</span><div><div class="t-name">Евгений Волков</div><div class="t-date">4 августа 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Хочу оставить положительный отзыв о сервисе. Приезжала на ТО своего Рено Дастер, и осталась очень довольна. Главный плюс — честность. У меня был небольшой опыт с другими СТО, где сразу пытаются «развести» на замену того, что еще ходит и ходить будет. Здесь же все прозрачно: мастера квалифицированные, осмотрели машину, четко выделили критичные позиции, а остальное просто рекомендовали к следующей замене. Никакого давления! Работы сделали качественно, все жидкости заменили, проверили подвеску.</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">А</span><div><div class="t-name">Анна Кулагина</div><div class="t-date">26 июля 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Посетила автосервис по рекомендации, все четко , быстро. Сделали даже что не могли сделать. Ничего лишнего. Заправила кондиционер, сделали машину, поправили электрику. Удобно, все в одном месте. Рекомендую, теперь только сюда</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">K</span><div><div class="t-name">Kseniia</div><div class="t-date">16 июля 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Любимая мастерская. Поддерживают Peugeot 308 на ходу с 2019 года по настоящее время. Всегда есть запчасти, преимущественно оригинальные. Всегда подскажут что износилось, при этом никогда не навязывают услуги и не накручивают ценник. Очень честная и проверенная контора, ребята уже много лет работают и с каждый годом развиваются. Кроме peugeot берутся и за другие марки, в том числе не французов, но упор все же на Франции, как мне показалось. Для посетителей есть туалет, вендинг и зона ожидания.</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">R</span><div><div class="t-name">Rober d. S.</div><div class="t-date">3 июля 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Апдейт 2026г быстро заменили трубку кондея на ОООО А3 после дтп, правила газ за пару дней. А через месяц за два часа решили проблему горящего Econ - электрик Николай, выше всяких похвал! Как всегда спасибо! 2023. Быстро, по качеству замечаний не было, ценник адекватный, ездил до переезда к ним, езжу и после. Сварщик Вообще талантище!</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">К</span><div><div class="t-name">Карина</div><div class="t-date">14 июня 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Хочу поблагодарить коллектив Лев Авто за профессиональное и доброжелательное отношение к клиентам. Обслуживаю здесь свой Peugeot 207 2009 г. За время обращения в сервис сложилось очень хорошее впечатление о работе сотрудников и организации в целом. Всегда внимательно выслушают, подробно объяснят все вопросы по автомобилю простым и понятным языком. Отношение спокойное, уважительное и без навязывания лишних услуг. Чувствуется, что сотрудники заинтересованы в результате и ответственно подходят к своей работе. Спасибо за качественную работу!</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">А</span><div><div class="t-name">анжела к</div><div class="t-date">13 июня 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Принесла в руках трубку. Поменяли плохую часть, проверили давлением. Сварщик профи, швы красивые. Цена вопроса 2 тыр. На разборке за 3 предлагали такую же гнилую, новых на мою машину нигде не найти.</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">В</span><div><div class="t-name">Вика Болычева</div><div class="t-date">23 апреля 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Очень внимательные ребята. Подходят к своему делу на все 1000%. Починили кондиционер, сказали что взять под контроль. Не разводят, не ***. Мы однозначно приедем еще. И поменяем автосервис на этот. Очень внимательные и знают свое дело! Спасибо</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">А</span><div><div class="t-name">алексей пирогов</div><div class="t-date">2 апреля 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Зачетное место. Привез сюда трубку от кондиционера на ремонт. Она развалилась в месте крепления на две части. Починили за 15 минут. Выглядит прикольно. Заправил кондей, все работает. Дают гарантию.</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">Р</span><div><div class="t-name">Роман</div><div class="t-date">22 марта 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>На данный момент делаю ремонт и почти все обслуживание Пежо 408 в этом автосервисе последние 5 лет. На мой взгляд - отличное место и люди. Из минусов могу сказать только про отсутствие возможности записаться на время. Но я понимаю, почему решили работать только с живой очередью.</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">С</span><div><div class="t-name">Сергей Козлов</div><div class="t-date">21 марта 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>10 лет назад отремонтировал запущенный кондиционер в этой компании. Автомобиль до сих пор не поменял и обслуживаю кондиционер только здесь. Мастера высочайшего класса и приемлемый ценник на работы. Рекомендую</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">М</span><div><div class="t-name">Михаил</div><div class="t-date">16 марта 2026</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Крутой и профессиональный сервис, качество выполняющий свою работу, персонал поможет решить любую проблему, смело приезжайте ремонтируйтесь и обслуживайте кондиционеры, даже запчасти покупать не надо отдельно, они у них есть</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+<div class="swiper-slide"><div class="t-card">
+<div class="t-top"><span class="av" aria-hidden="true">И</span><div><div class="t-name">Иван Ф.</div><div class="t-date">13 декабря 2024</div></div></div>
+<div class="t-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+<p>Отлично ремонтируют кондиционеры и авто. Знают что делают. Немного дороговато, но терпимо. Хочу дополнить свой отзыв: Многие пишут что нет очереди по записи... Так вот я скажу свое мнение... Я обслуживаю свою одну машину в этом сервисе уже 13 ЛЕТ! И всегда когда МНЕ надо было, я приезжал в удобное МНЕ время в живую очередь и всегда все делали в день обращения. И большой обьем работы и маленький, не важно. Теперь я к ним буду ездить с вторым автомобилем.</p>
+<span class="t-src"><svg class="bi"><use href="#i-ya"></use></svg> по Яндекс Картам</span>
+</div></div>
+</div>
+</div>
+<a class="readall" href="https://yandex.ru/maps/org/lev_avto/124092195979/reviews/" target="_blank" rel="noopener"><span><svg class="bi"><use href="#i-ya"></use></svg> 565 отзывов на Яндекс Картах</span><b>Читать все отзывы <i class="fa-solid fa-arrow-right"></i></b></a>
+</div>
+</section>
+<section class="dots2" id="cta">
+<div class="wrap" style="text-align:center">
+<span class="lab c" data-aos="fade-up">Заявка</span>
+<h2 data-aos="fade-up" style="margin:12px auto 0;max-width:22ch">Приезжайте без записи или оставьте заявку</h2>
+<p class="sub" data-aos="fade-up" style="margin:16px auto 0;text-align:center">Работаем без записи: приезжаете в удобное время и в порядке живой очереди. Если хотите, оставьте заявку — свяжемся и подскажем по вашей задаче.</p>
+<div class="cphones" data-aos="fade-up" style="margin-top:28px">
+<div class="cpitem"><div class="cprow"><a class="cphone" href="tel:+74956478223">+7 (495) 647-82-23</a><button class="cbtn" type="button" data-copy="+7 (495) 647-82-23" aria-label="Скопировать номер +7 (495) 647-82-23"><i class="fa-solid fa-copy"></i></button></div><span class="cphone-lab">Основной телефон</span></div>
+<div class="cpitem"><div class="cprow"><a class="cphone sm" href="tel:+74957900037">+7 (495) 790-00-37</a><button class="cbtn sm2" type="button" data-copy="+7 (495) 790-00-37" aria-label="Скопировать номер +7 (495) 790-00-37"><i class="fa-solid fa-copy"></i></button></div><span class="cphone-lab">Дополнительный телефон</span></div>
+<div class="cpitem"><div class="cprow"><a class="cphone sm" href="tel:+79684117733">+7 (968) 411-77-33</a><button class="cbtn sm2" type="button" data-copy="+7 (968) 411-77-33" aria-label="Скопировать номер +7 (968) 411-77-33"><i class="fa-solid fa-copy"></i></button></div><span class="cphone-lab">Мобильный телефон</span></div>
+</div>
+<a class="btn" href="#cont" data-aos="fade-up" style="margin-top:28px"><span>Оставить заявку</span></a>
+<p style="margin-top:20px;font-size:13px;color:var(--mut)">Московская область, Мытищи, дер. Челобитьево, 42А · ежедневно 10:00–19:00 · м. Медведково — 3,8 км</p>
+</div>
+</section>
+<section class="lt" id="cont">
+<div class="wrap">
+<div class="hd" data-aos="fade-up"><span class="lab">Контакты</span><h2>Как нас найти</h2><p class="sub">Сервис в деревне Челобитьево под Мытищами, рядом с Осташковским шоссе. Работаем без записи, ежедневно с 10:00 до 19:00.</p></div>
+<div class="cg">
+<div class="ctr" data-aos="fade-up">
+<div class="ctrow"><span class="ico cico"><i class="fa-solid fa-location-dot"></i></span><div><span class="clab">Адрес</span><div class="cval">Московская область, Мытищи, дер. Челобитьево, 42А<br><span style="color:var(--mut);font-weight:500">Метро Медведково — 3,8 км · остановка «Челобитьево — Сельмаг» — 540 м</span></div></div></div>
+<div class="ctrow"><span class="ico cico"><i class="fa-solid fa-phone"></i></span><div><span class="clab">Телефоны</span><a class="v" href="tel:+74956478223">+7 (495) 647-82-23</a><a class="v" href="tel:+74957900037" style="font-size:19px">+7 (495) 790-00-37</a><a class="v" href="tel:+79684117733" style="font-size:19px">+7 (968) 411-77-33</a></div></div>
+<div class="ctrow"><span class="ico cico"><i class="fa-solid fa-envelope"></i></span><div><span class="clab">Почта</span><a class="mail" href="mailto:info@levauto.ru">info@levauto.ru</a></div></div>
+<div class="ctrow"><span class="ico cico"><i class="fa-solid fa-clock"></i></span><div style="flex:1"><span class="clab">Часы работы</span>
+<div class="hours">
+<span class="wk"><em style="font-style:normal">Понедельник – Воскресенье</em><b>10:00–19:00</b></span>
+</div>
+<div class="hbreak"><i class="fa-solid fa-hand-pointer"></i><span>Работаем без записи — приезжайте в порядке живой очереди</span><span></span></div>
+</div></div>
+<div class="ctrow"><span class="ico cico"><i class="fa-solid fa-comment"></i></span><div><span class="clab">Мы в сети</span>
+<div class="schips">
+<a class="schip" href="https://wa.me/79684117733" target="_blank" rel="noopener"><span class="chi"><svg><use href="#i-wa"></use></svg></span>WhatsApp</a>
+<a class="schip" href="https://vk.com/levautoclub" target="_blank" rel="noopener"><span class="chi"><svg><use href="#i-vk"></use></svg></span>ВКонтакте</a>
+<a class="schip" href="https://www.youtube.com/channel/UCrjPBbCs22bwrTsHJrYpNPQ" target="_blank" rel="noopener"><span class="chi"><svg><use href="#i-yt"></use></svg></span>YouTube</a>
+</div></div></div>
+<div class="map-w" id="mapw">
+<iframe src="https://yandex.ru/map-widget/v1/?oid=124092195979&amp;ol=biz" width="100%" height="380" loading="lazy" allowfullscreen title="ЛевАвто на Яндекс Картах"></iframe>
+<div class="map-lock" id="maplock"><span><i class="fa-solid fa-hand-pointer"></i> Нажмите на карту, чтобы её двигать</span></div>
+</div>
+</div>
+<form class="card" id="lead" action="https://api.web3forms.com/submit" method="POST" data-aos="fade-up">
+<input type="hidden" name="access_key" value="ВСТАВЬТЕ-КЛЮЧ-WEB3FORMS">
+<div><label for="f1">Имя</label><input id="f1" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться"></div>
+<div><label for="f2">Телефон</label><input id="f2" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="18" required></div>
+<div><label id="slab">Услуга</label>
+<div class="fsel" id="fsel"><input type="hidden" name="service" id="fsvc" value=""><button type="button" aria-labelledby="slab" aria-haspopup="listbox"><span id="fsvt">Выберите услугу</span><i class="fa-solid fa-chevron-down"></i></button>
+<ul role="listbox">
+<li role="option">Автокондиционер: ремонт и заправка</li><li role="option">Диагностика и ремонт ходовой</li><li role="option">ТО и замена масла</li><li role="option">Коммерческий транспорт</li><li role="option">Сход-развал 3D</li><li role="option">Токарно-фрезерные работы</li><li role="option">Ремонт двигателя</li><li role="option">Другое</li>
+</ul></div></div>
+<div><label for="f3">Комментарий</label><textarea id="f3" name="comment" rows="3" placeholder="Например: Peugeot 308, не холодит кондиционер, нужна заправка и проверка на утечку"></textarea></div>
+<div class="cap"><span>Проверка от спама: сколько будет <b id="cq">4 + 7</b>?</span><input id="f4" type="text" inputmode="numeric" aria-label="Ответ на пример"><button type="button" id="cref" aria-label="Обновить пример"><i class="fa-solid fa-rotate-right"></i></button></div>
+<div class="cons"><label for="f5" style="margin:0;font-weight:500;color:var(--mut)"><input id="f5" type="checkbox"> Нажимая «Отправить заявку», я соглашаюсь на обработку персональных данных и принимаю <button type="button" class="lnk" data-open="policy">политику конфиденциальности</button></label></div>
+<p class="err" id="ferr" hidden><i class="fa-solid fa-circle-exclamation"></i> <span></span></p>
+<button class="btn" type="submit" style="width:100%"><span>Отправить заявку</span></button>
+<div id="fsuc">Заявка отправлена. Мы свяжемся с вами.</div>
+<p style="font-size:13px;color:var(--mut)">Ежедневно 10:00–19:00 · дер. Челобитьево, 42А · работаем без записи</p>
+</form>
+</div>
+</div>
+</section>
+<footer>
+<div class="wrap">
+<div class="fgrid">
+<div>
+<div class="fbrand"><img src="images/mark.png" alt="ЛевАвто" width="34" height="34" onerror="this.style.display='none'"><span class="brand-name" style="font-size:24px"><span class="bw-a">ЛЕВ</span> <span class="bw-b">АВТО</span></span></div>
+<p>Автосервис в дер. Челобитьево под Мытищами: ремонт легковых и коммерческих автомобилей, ТО, автокондиционеры, сход-развал 3D, токарно-фрезерные работы. Работаем без записи.</p>
+<p style="margin-top:14px"><span class="stars" style="font-size:16px"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span> 5,0 из 5 — 1 123 оценки, 565 отзывов</p>
+<p style="margin-top:14px"><span class="pill"><i class="fa-solid fa-award"></i> Хорошее место 2026</span></p>
+</div>
+<div><h4>Компания</h4><ul><li><a href="#services">Услуги</a></li><li><a href="#prices">Цены</a></li><li><a href="#why">Почему мы</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#cont">Контакты</a></li></ul></div>
+<div><h4>Услуги</h4><ul><li><a href="#prices">Автокондиционеры</a></li><li><a href="#prices">Диагностика ходовой</a></li><li><a href="#prices">ТО и замена масла</a></li><li><a href="#prices">Сход-развал 3D</a></li><li><a href="#prices">Токарно-фрезерные работы</a></li></ul></div>
+<div><h4>Контакты</h4>
+<p>Московская область, Мытищи, дер. Челобитьево, 42А</p>
+<a class="ftel" href="tel:+74956478223">+7 (495) 647-82-23</a>
+<a class="ftel" href="tel:+74957900037">+7 (495) 790-00-37</a>
+<a class="ftel" href="tel:+79684117733">+7 (968) 411-77-33</a>
+<p style="margin-top:12px">Ежедневно 10:00–19:00<br>Работаем без записи</p>
+</div>
+</div>
+<div class="fbot"><span>© <span id="yr">2026</span> ЛевАвто. Все права защищены.</span><button type="button" class="lnk" style="color:rgba(255,255,255,.6)" data-open="policy">Политика конфиденциальности</button></div>
+</div>
+</footer>
+<a id="call" href="tel:+74956478223" aria-label="Позвонить"><i class="fa-solid fa-phone"></i></a>
+<div id="cookie" role="region" aria-label="Использование cookie">
+<span>На сайте используется Яндекс Карты: сервис использует cookie.</span>
+<button type="button" data-open="policy">Политика</button>
+<button type="button" class="ok" id="ckok">Хорошо</button>
+</div>
+<dialog id="policy">
+<button id="pclose" type="button" aria-label="Закрыть"><i class="fa-solid fa-xmark"></i></button>
+<h3>Политика конфиденциальности</h3>
+<p>Оператор персональных данных: [Наименование организации], ИНН [ИНН], ОГРН [ОГРН], юридический адрес: [юридический адрес]. Дата публикации: [дата].</p>
+<h3>Какие данные собираются</h3>
+<p>Через форму на сайте оператор получает имя, номер телефона, выбранную услугу и комментарий, который вы указали добровольно.</p>
+<h3>Зачем они нужны</h3>
+<p>Данные используются только для обработки заявки: связи с вами, уточнения задачи и согласования времени визита в сервис.</p>
+<h3>Срок хранения</h3>
+<p>Данные хранятся не дольше, чем это необходимо для обработки обращения, после чего удаляются.</p>
+<h3>Права субъекта</h3>
+<ul><li>получить информацию об обработке своих данных;</li><li>требовать уточнения, блокирования или удаления данных;</li><li>отозвать согласие на обработку.</li></ul>
+<h3>Как отозвать согласие</h3>
+<p>Направьте обращение на [e-mail для обращений] или позвоните по телефону +7 (495) 647-82-23. Согласие считается отозванным с момента получения обращения.</p>
+<p style="margin-top:16px;color:var(--mut);font-size:13.5px">Шаблон: текст политики взят не из источника — заполните поля в квадратных скобках до публикации.</p>
+</dialog>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script>
+(function(){
+'use strict';
+var d=document, fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+d.getElementById('yr').textContent=new Date().getFullYear();
+var hdr=d.getElementById('hdr'), bar=d.getElementById('bar'), menu=d.getElementById('menu'), bg=d.getElementById('bg');
+function onScroll(){var y=window.scrollY||d.documentElement.scrollTop;
+ hdr.classList.toggle('on',y>80);
+ var h=d.documentElement.scrollHeight-window.innerHeight;
+ bar.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';}
+window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+var lenis=(window.Lenis&&window.innerWidth>900)?new Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))}}):null;
+if(lenis){d.documentElement.style.scrollBehavior='auto';(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0)}
+function lockScroll(on){if(lenis){on?lenis.stop():lenis.start()} d.body.style.overflow=on?'hidden':''}
+function goTo(t){if(!t)return;if(lenis){lenis.scrollTo(t,{offset:-80})}else{t.scrollIntoView({behavior:'smooth'})}}
+d.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=d.querySelector(a.getAttribute('href'));if(!t)return;e.preventDefault();closeMenu();goTo(t)})});
+function closeMenu(){menu.classList.remove('on');bg.classList.remove('on');bg.setAttribute('aria-expanded','false');lockScroll(false)}
+bg.addEventListener('click',function(){var on=!menu.classList.contains('on');menu.classList.toggle('on',on);bg.classList.toggle('on',on);bg.setAttribute('aria-expanded',on?'true':'false');lockScroll(on)});
+d.querySelectorAll('.tcell').forEach(function(c){c.addEventListener('click',function(){c.classList.add('is-tapped');setTimeout(function(){c.classList.remove('is-tapped')},900)})});
+if(fine&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+ d.documentElement.classList.add('rv');
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('aos-in');io.unobserve(e.target)}})},{threshold:.12});
+ d.querySelectorAll('[data-aos]').forEach(function(el){var dl=el.getAttribute('data-aos-delay');if(dl)el.style.transitionDelay=dl+'ms';io.observe(el)});
+}
+if(window.gsap&&window.Splitting&&fine){try{Splitting({target:d.querySelectorAll('h1'),by:'chars'})}catch(e){}}
+if(window.gsap&&window.innerWidth>768){
+ var tl=window.gsap.timeline({defaults:{duration:.8,ease:'power3.out'}});
+ tl.from('#hero .eyebrow',{y:24,opacity:0}).from('#hero h1',{y:24,opacity:0},'-=.62').from('#hero .hsub',{y:24,opacity:0},'-=.6').from('#hero .hcta',{y:24,opacity:0},'-=.6').from('#hero .trust',{y:24,opacity:0},'-=.6').from('#hero .hpanel',{opacity:0},'-=1');
+ var nums=d.querySelectorAll('.num[data-to]');
+ var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var el=e.target,to=parseFloat(el.getAttribute('data-to')),o={v:0};
+ window.gsap.to(o,{v:to,duration:2,ease:'expo.out',onUpdate:function(){el.textContent=Math.round(o.v).toLocaleString('ru-RU')},onComplete:function(){el.textContent=to.toLocaleString('ru-RU');el.classList.add('landed')}});})},{threshold:.3});
+ nums.forEach(function(n){cio.observe(n)});
+}
+if(fine&&window.innerWidth>900){
+ d.querySelectorAll('.svc').forEach(function(c){
+  c.addEventListener('pointerenter',function(){c.style.transition='transform .08s ease-out'});
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;
+   c.style.transform='perspective(900px) rotateX('+(-py*6)+'deg) rotateY('+(px*6)+'deg) translateY(-6px)'});
+  c.addEventListener('pointerleave',function(){c.style.transform='';c.style.transition='transform .45s cubic-bezier(.4,0,.2,1)'});
+ });
+}
+if(window.tsParticles&&window.innerWidth>900){window.tsParticles.load('particles',{fullScreen:{enable:false},particles:{number:{value:28},color:{value:'#fff'},opacity:{value:.18,anim:{enable:true}},size:{value:{min:1,max:2}},move:{enable:true,speed:.5,direction:'top',outModes:{default:'out'}},detectRetina:true}})}
+var mq=d.getElementById('mqt');
+if(mq){var mo=new IntersectionObserver(function(es){es.forEach(function(e){mq.style.animationPlayState=e.isIntersecting?'running':'paused'})},{threshold:0});mo.observe(d.getElementById('mq'));
+ setTimeout(function(){var tr=getComputedStyle(mq).transform;if(!tr||tr==='none'||tr==='matrix(1, 0, 0, 1, 0, 0)'){var half=mq.scrollWidth/2,t0=performance.now();
+  (function loop(t){mq.style.animation='none';mq.style.transform='translateX('+(-(((t-t0)/1000*40)%half))+'px)';requestAnimationFrame(loop)})(t0)}},1500)}
+if(window.Swiper){new window.Swiper('#revs',{loop:false,resistanceRatio:.85,spaceBetween:24,grabCursor:true,speed:800,scrollbar:{el:'#revscroll',draggable:true,hide:false},autoplay:{delay:7000,disableOnInteraction:false,pauseOnMouseEnter:true},breakpoints:{0:{slidesPerView:1.15,centeredSlides:true},768:{slidesPerView:2,centeredSlides:false},1024:{slidesPerView:3,centeredSlides:false}}})}
+else{d.documentElement.classList.add('no-swiper')}
+d.querySelectorAll('.p-head').forEach(function(b){b.addEventListener('click',function(){var g=b.parentNode,cl=g.classList.toggle('closed');b.setAttribute('aria-expanded',cl?'false':'true')})});
+var sel=d.getElementById('fsel');
+if(sel){var sb=sel.querySelector('button'),sl=sel.querySelector('ul'),ti=d.getElementById('fsvt'),hi=d.getElementById('fsvc');
+ sb.addEventListener('click',function(e){e.stopPropagation();sel.classList.toggle('on')});
+ sl.addEventListener('click',function(e){var li=e.target.closest('li');if(!li)return;hi.value=li.textContent;ti.textContent=li.textContent;sel.classList.remove('on')});
+ d.addEventListener('click',function(e){if(!sel.contains(e.target))sel.classList.remove('on')});
+ d.addEventListener('keydown',function(e){if(e.key==='Escape')sel.classList.remove('on')})}
+var ph=d.getElementById('f2'),pdigits=0;
+function fmt(dig){var c=dig.charAt(0);if(c==='8')c='7';var n=dig.slice(1,11),s='+'+c;
+ if(n.length)s+=' ('+n.slice(0,3);if(n.length>=3)s+=')';if(n.length>3)s+=' '+n.slice(3,6);if(n.length>6)s+='-'+n.slice(6,8);if(n.length>8)s+='-'+n.slice(8,10);return s}
+if(ph){ph.addEventListener('input',function(e){var raw=ph.value.replace(/[^\d+()\-\s]/g,''),dig=raw.replace(/\D/g,'').slice(0,11);
+ if(e.inputType&&e.inputType.indexOf('delete')===0){ph.value=raw;pdigits=dig.length;return}
+ if(dig.length<pdigits){pdigits=dig.length;return}
+ pdigits=dig.length;ph.value=dig?fmt(dig):''})}
+var ca=0,cb=0,cans=0,cq=d.getElementById('cq'),f4=d.getElementById('f4');
+function newCap(){ca=2+Math.floor(Math.random()*8);cb=2+Math.floor(Math.random()*8);cans=ca+cb;cq.textContent=ca+' + '+cb;f4.value=''}
+newCap();d.getElementById('cref').addEventListener('click',newCap);
+function showErr(m){var el=d.getElementById('ferr');el.hidden=false;el.querySelector('span').textContent=m;el.classList.remove('shake');void el.offsetWidth;el.classList.add('shake')}
+var form=d.getElementById('lead');
+form.addEventListener('submit',function(e){e.preventDefault();
+ var n=d.getElementById('f1').value.trim(),pd=d.getElementById('f2').value.replace(/\D/g,'');
+ if(!n){showErr('Укажите имя');return} if(pd.length<10){showErr('Укажите телефон полностью');return}
+ if(parseInt(f4.value,10)!==cans){showErr('Неверный ответ — попробуйте ещё раз');newCap();return}
+ if(!d.getElementById('f5').checked){showErr('Отметьте согласие на обработку данных');return}
+ d.getElementById('ferr').hidden=true;
+ var key=form.querySelector('input[name="access_key"]').value;
+ if(key.indexOf('ВСТАВЬТЕ')===0){if(window.console)console.warn('Web3Forms: ключ не задан, данные никуда не отправляются.');d.getElementById('fsuc').classList.add('show');form.querySelector('button[type="submit"]').style.display='none';return}
+ fetch(form.action,{method:'POST',body:new FormData(form)}).then(function(){d.getElementById('fsuc').classList.add('show');form.querySelector('button[type="submit"]').style.display='none'}).catch(function(){showErr('Не удалось отправить. Позвоните: +7 (495) 647-82-23')})});
+d.querySelectorAll('[data-copy]').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();e.preventDefault();
+ var t=b.getAttribute('data-copy');
+ function ok(){b.classList.add('done');setTimeout(function(){b.classList.remove('done')},1400)}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){fb()})}else{fb()}
+ function fb(){var a=d.createElement('textarea');a.value=t;a.style.position='fixed';a.style.left='-9999px';d.body.appendChild(a);a.select();try{d.execCommand('copy');ok()}catch(e){}d.body.removeChild(a)}})});
+var pol=d.getElementById('policy');
+function openPol(){if(pol.showModal)pol.showModal();else pol.setAttribute('open','');lockScroll(true)}
+d.querySelectorAll('[data-open="policy"]').forEach(function(b){b.addEventListener('click',function(){openPol()})});
+d.getElementById('pclose').addEventListener('click',function(){pol.close();lockScroll(false)});
+pol.addEventListener('click',function(e){if(e.target===pol){pol.close();lockScroll(false)}});
+pol.addEventListener('close',function(){lockScroll(false)});
+var ck=d.getElementById('cookie');
+if(ls('ck')==='1'){ck.remove()}else{d.getElementById('ckok').addEventListener('click',function(){ls('ck','1');ck.remove()})}
+var mw=d.getElementById('mapw'),ml=d.getElementById('maplock'),mapLocked=true;
+mw.removeAttribute('data-lenis-prevent');
+function lockMap(){if(mapLocked)return;mapLocked=true;ml.classList.remove('off');mw.removeAttribute('data-lenis-prevent');if(lenis)lenis.start()}
+function unlockMap(){if(!mapLocked)return;mapLocked=false;ml.classList.add('off');mw.setAttribute('data-lenis-prevent','');if(lenis)lenis.stop()}
+ml.addEventListener('click',function(e){e.stopPropagation();unlockMap()});
+mw.addEventListener('pointerleave',function(){if(fine&&!mapLocked)lockMap()});
+if(!fine){d.addEventListener('click',function(e){if(!mw.contains(e.target))lockMap()})}
+})();
+</script>
+</body>
+</html>
